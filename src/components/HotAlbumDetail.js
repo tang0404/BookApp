@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image,} from "react-native";
-import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import { StyleSheet, Text, View, Image, Pressable} from "react-native";
 
 const HotAlbumDetail = ({album, navigation}) => {
   //  let { album } = props;
