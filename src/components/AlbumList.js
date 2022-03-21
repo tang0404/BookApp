@@ -23,7 +23,17 @@ const Albumlist = ({ navigation }) => {
     if (section.horizontal) {
       return null;
     }
-    return <AlbumDetail album={item} />
+    // return(
+    //   <FlatList
+    //       horizontal={true}
+    //       data={section.data}
+    //       renderItem={({ item }) => <AlbumDetail album={item} navigation={navigation} />}
+    //       showsHorizontalScrollIndicator={false}
+    //       keyExtractor={ item => item.title }
+    //       />
+    //       // <HotAlbumDetail album={item} navigation={navigation} />
+    // )
+      
   };
 
   return (
@@ -41,7 +51,7 @@ const Albumlist = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   sectionHeader: {
-    fontWeight: '500',
+    fontWeight: 'bold',
     fontSize: 24,
     paddingTop: 8,
     // paddingBottom: 16,

@@ -1,14 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable} from "react-native";
+import Star from "./star";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
+
+const colorLight = "#FFC41F";
+const colorDark = "#EDEDEF";
+const starLight = <MaterialCommunityIcons name="star" color={colorLight} size={18} />;
+const starDark = <MaterialCommunityIcons name="star" color={colorDark} size={18} />;
+const starPattern = [starDark, starLight];
 
 const HotAlbumDetail = ({album, navigation}) => {
-  //  let { album } = props;
    return (
      <View style={{flexDirection: 'column',
                   paddingRight: 16,}}>
         <View style={styles.cardContainerStyle}>
-          <View style={styles.cardSectionStyle}>
-            <Pressable
+          <Pressable
               onPress={() => navigation.navigate("Detail", album)}
             >
               <Image
@@ -16,34 +23,41 @@ const HotAlbumDetail = ({album, navigation}) => {
               source={{uri: album.image}}
             />
             </Pressable>
-          </View>
-        </View>  
+        </View>
+        <View style={styles.star}>
+          {album.star != null ? (
+              starPattern[album.star[0]]
+          ):null} 
+          {album.star != null ? (
+              starPattern[album.star[1]]
+          ):null} 
+          {album.star != null ? (
+              starPattern[album.star[2]]
+          ):null}
+          {album.star != null ? (
+              starPattern[album.star[3]]
+          ):null} 
+          {album.star != null ? (
+              starPattern[album.star[4]]
+          ):null}  
+        </View>
         <View style={styles.headerContainerStyle}>
           <Text style={styles.headerTitleStyle}>{album.title}</Text>
           <Text style={styles.headerContentStyle}>{album.artist}</Text>
         </View>
-    </View>
+      </View>
 
   )};
 
 const styles = StyleSheet.create({
   cardContainerStyle: {
-    // borderWidth: 1,
-    // borderRadius: 2,
-    // borderColor: "#ddd",
-    // shadowColor: "#000",
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.1,
-    // shadowRadius: 2,
-    // elevation: 1,
-    // marginLeft: 5,
-    // marginRight: 5,
     marginTop: 16,
+    marginBottom: 16,
   },
   headerContainerStyle: {
     flexDirection: "column",
     justifyContent: "space-around",
-    paddingTop: 16,
+    // paddingTop: 16,
     width: 130,
   },
   headerTitleStyle: {
@@ -53,17 +67,18 @@ const styles = StyleSheet.create({
   headerContentStyle: {
     fontSize: 12,
     fontWeight: '500',
-    color: "#222",
+    color: "#666666",
     paddingTop: 8,
     paddingBottom: 16,
     width: '100%'
   },
-  cardSectionStyle: {
-    backgroundColor: "#fff",
-  },
   imageStyle: {
     height: 200,
     width: 140,
+  },
+  star: {
+    flexDirection: 'row',
+    marginBottom: 8,
   }
 });
 

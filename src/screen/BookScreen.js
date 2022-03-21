@@ -5,7 +5,7 @@ import sections from "../json/album_section.json";
 
 const BookScreen = ({ navigation }) => {
     return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, backgroundColor: 'white'}}>
             <AlbumList
                 list={sections.data}
                 navigation={navigation}

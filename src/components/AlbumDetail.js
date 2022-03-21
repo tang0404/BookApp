@@ -1,25 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View, Image} from "react-native";
+import { StyleSheet, Text, View, Image, Pressable} from "react-native";
 
-const AlbumDetail = props => {
-   let { album } = props;
-   return (
-    <View style={{flexDirection: 'column',
-    paddingRight: 16,}}>
-<View style={styles.cardContainerStyle}>
-<View style={styles.cardSectionStyle}>
-<Image
-style={styles.imageStyle}
-source={{uri: album.image}}
-/>
-</View>
-</View>  
-<View style={styles.headerContainerStyle}>
-<Text style={styles.headerTitleStyle}>{album.title}</Text>
-<Text style={styles.headerContentStyle}>{album.artist}</Text>
-</View>   
-</View>
-  )};
+const AlbumDetail = ({album, navigation}) => {
+    return (
+      <View style={{flexDirection: 'column',
+                    paddingRight: 16,}}>
+        <View style={styles.cardContainerStyle}>
+          <View style={styles.cardSectionStyle}>
+            <Pressable
+              onPress={() => navigation.navigate("Detail", album)}
+              >
+                <Image
+              style={styles.imageStyle}
+              source={{uri: album.image}}
+              />
+            </Pressable>
+          </View>
+        </View>  
+        <View style={styles.headerContainerStyle}>
+          <Text style={styles.headerTitleStyle}>{album.title}</Text>
+          <Text style={styles.headerContentStyle}>{album.artist}</Text>
+        </View>   
+      </View>
+    )};
 
 const styles = StyleSheet.create({
   cardContainerStyle: {
