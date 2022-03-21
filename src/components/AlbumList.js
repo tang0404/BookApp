@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, FlatList, SectionList, StyleSheet } from "react-native";
-import AlbumDetail from "./AlbumDetail";
 import HotAlbumDetail from "./HotAlbumDetail";
 import sections from "../json/album_section.json";
 
@@ -23,17 +22,6 @@ const Albumlist = ({ navigation }) => {
     if (section.horizontal) {
       return null;
     }
-    // return(
-    //   <FlatList
-    //       horizontal={true}
-    //       data={section.data}
-    //       renderItem={({ item }) => <AlbumDetail album={item} navigation={navigation} />}
-    //       showsHorizontalScrollIndicator={false}
-    //       keyExtractor={ item => item.title }
-    //       />
-    //       // <HotAlbumDetail album={item} navigation={navigation} />
-    // )
-      
   };
 
   return (

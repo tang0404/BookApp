@@ -2,9 +2,16 @@ import { ScrollView } from "native-base";
 import react from "react";
 import { StyleSheet, Text, View, Image, Linking, Pressable } from "react-native";
 import { ScreenStackHeaderBackButtonImage } from "react-native-screens";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
+const colorLight = "#FFC41F";
+const colorDark = "#EDEDEF";
+const starLight = <MaterialCommunityIcons name="star" color={colorLight} size={18} />;
+const starDark = <MaterialCommunityIcons name="star" color={colorDark} size={18} />;
+const starPattern = [starDark, starLight];
 
 const DetailScreen = ({ route }) => {
-    const { title, artist, url, image, starNum, description, price } = route.params;
+    const { title, artist, url, image, star, starNum, description, price } = route.params;
     return(
         <ScrollView style={{backgroundColor: 'white'}}>
             <View style={styles.imageContainer}>
@@ -13,13 +20,35 @@ const DetailScreen = ({ route }) => {
                     source={{uri: image}} />
             </View>
             <View>
-                <View style={styles.cardcontainer}>
-                    <Text style={styles.title}>{title}</Text>
-                    <Text style={styles.artist}>{artist}</Text>
-                </View>
-                <View style={styles.cardDescription}>
-                    <Text style={styles.description}>{description}</Text>
-                </View>
+            <View style={styles.cardcontainer}>
+                 <Text style={styles.title}>{title}</Text>
+                <Text style={styles.artist}>{artist}</Text>
+            </View>
+            <View style={styles.star}>
+                {star != null ? (
+                    starPattern[star[0]]
+                ):null} 
+                {star != null ? (
+                    starPattern[star[1]]
+                ):null} 
+                {star != null ? (
+                    starPattern[star[2]]
+                ):null}
+                {star != null ? (
+                    starPattern[star[3]]
+                ):null} 
+                {star != null ? (
+                    starPattern[star[4]]
+                ):null}
+                {star != null ?(
+                    <Text style={{paddingLeft: 8}}>
+                    {starNum}.0<Text style={{color: '#666666'}}> / 5.0</Text>
+                </Text>
+                ):null}
+            </View>
+            <View style={styles.cardDescription}>
+                <Text style={styles.description}>{description}</Text>
+            </View>
             </View>
             <Pressable
                 onPress={() => Linking.openURL(url)}
@@ -56,7 +85,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: '500',
+        fontWeight: 'bold',
     },
     artist: {
         fontSize: 14,
@@ -79,7 +108,6 @@ const styles = StyleSheet.create({
     },
     button: {
         width: 190,
-        // height: 36,
         borderRadius: 4,
         backgroundColor: '#6200EE',
         alignSelf: 'center',
@@ -91,7 +119,12 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         marginVertical: 10,
-    }
+    },
+    star: {
+        flexDirection: 'row',
+        // marginBottom: 8,
+        alignSelf: 'center',
+      }
 });
 
 export default DetailScreen;

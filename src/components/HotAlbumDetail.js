@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable} from "react-native";
-import Star from "./star";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 
