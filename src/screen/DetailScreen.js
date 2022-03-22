@@ -1,5 +1,5 @@
 import { ScrollView } from "native-base";
-import react from "react";
+import React from "react";
 import { StyleSheet, Text, View, Image, Linking, Pressable } from "react-native";
 import { ScreenStackHeaderBackButtonImage } from "react-native-screens";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#6200EE',
         alignSelf: 'center',
         marginTop: 20,
+        marginBottom: 60,
     },
     buttonText: {
         fontSize: 14,

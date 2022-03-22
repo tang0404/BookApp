@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   headerContainerStyle: {
     flexDirection: "column",
     justifyContent: "space-around",
-    // paddingTop: 16,
     width: 130,
   },
   headerTitleStyle: {

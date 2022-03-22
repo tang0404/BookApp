@@ -1,5 +1,5 @@
-import react from "react";
-import { View, FlatList } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import AlbumList from "../components/AlbumList";
 import sections from "../json/album_section.json";
 

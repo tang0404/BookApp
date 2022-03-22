@@ -42,9 +42,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 24,
     paddingTop: 8,
-    // paddingBottom: 16,
-    // paddingLeft: 20,
-    // textTransform: 'uppercase',
   },
 })
 
